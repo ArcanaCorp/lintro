@@ -1,0 +1,43 @@
+.wdfull {
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--color-white);
+}
+
+.box {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    height: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav {
+    height: inherit;
+}
+
+.itms {
+    display: flex;
+    height: inherit;
+    gap: 2rem;
+    align-items: center;
+}
+
+.itm {
+    display: inline-block;
+}
+
+.itmlink {
+    display: inline-block;
+    padding: .6rem 1rem;
+    font-size: var(--font-size-sm);
+}
+
+.itmlink.active {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-medium);
+    border-radius: var(--border-radius-full);
+    background-color: var(--color-primary);
+    border: var(--border-width) solid var(--color-accent);
+}

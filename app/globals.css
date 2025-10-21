@@ -1,42 +1,113 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+    }
+}*/
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+:root {
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --color-primary: #06F988;
+    --color-accent: #00351E;
+    --color-dark: #181818;
+    --color-white: #FFFFFF;
+    --color-bg: #f9f9f9;
+    --color-gray: #888888;
+    --color-error: #db0000;
+    --color-warning: rgb(218, 218, 3);
+    --color-success: rgba(0, 221, 48);
+    --color-info: rgba(0, 85, 255);
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 36px;
+    --font-size-4xl: 48px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* 📏 Espaciados */
+    --spacing-xxs: 2px;
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 12px;
+    --spacing-lg: 16px;
+    --spacing-xl: 20px;
+    --spacing-2xl: 24px;
+    --spacing-3xl: 32px;
+
+    /* ⬜ Bordes */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 9999px;
+
+    --border-width: 1px;
+    --border-color: var(--color-accent);
+    --border-normal: var(--border-width) solid var(--border-color);
+    --border-secondary: var(--border-width) solid var(--color-gray);
+
+    /* 🌫️ Sombras */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    /* 📌 Layout */
+    --sidebar-width: 300px;
+    --header-height: 80px;
+
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: var(--font-poppins-sans);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg);
+}
+
+input, select, textarea {
+    outline: none;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+    text-decoration: none;
+    color: var(--color-dark);
 }

@@ -1,0 +1,131 @@
+.main {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+}
+
+.col {
+    width: 100%;
+    height: inherit;
+    background-color: var(--color-white);
+}
+
+.title {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.linklogo {
+    width: 100%;
+}
+
+.logo {
+    width: 80%;
+    margin: auto;
+    font-size: var(--font-size-3xl);
+}
+
+.content {
+    width: 80%;
+    margin: auto;
+}
+
+.txtPrimary {
+    text-align: center;
+    font-size: var(--font-size-4xl);
+}
+
+.txtSecondary {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--font-size-base);
+}
+
+.form {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.formGroup {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.formControl {
+    position: relative;
+    width: 100%;
+}
+
+.entry {
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius-md);
+}
+
+.btnView {
+    position: absolute;
+    display: grid;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    place-items: center;
+    background: none;
+}
+
+.message {
+    color: var(--color-error);
+    font-size: var(--font-size-xs);
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    border-radius: var(--border-radius-full);
+}
+
+.btn.active {
+    color: var(--color-white);
+    background-color: var(--color-dark);
+}
+
+.txtTerms {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--font-size-xs);
+}
+
+.txtTerms > a {
+    text-decoration: underline;
+}
+
+.txtAccount {
+    text-align: center;
+    color: var(--color-gray);
+    font-size: var(--font-size-sm);
+}
+
+.txtAccount > a {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.col.bg {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.col.bglogin {
+    background-image: url(../../../public/banner-login-desktop.f355be949b508c58ec2d.webp);
+}
+
+.col.bgsign {
+    background-image: url(../../../public/banner-register-social-desktop.18fa56fce6ad2db4f48b.webp);
+}
