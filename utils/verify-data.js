@@ -1,3 +1,24 @@
+export const validate = (form) => {
+    
+    const errors = {};
+
+    // UX básica (no reemplaza tus utils)
+    if (!form.email) {
+        errors.email = 'El correo es obligatorio';
+    } else if (!isValidEmail(form.email)) {
+        errors.email = 'Correo inválido';
+    }
+
+    if (!form.password) {
+        errors.password = 'La contraseña es obligatoria';
+    } else {
+        const result = isValidPassword(form.password);
+        if (!result.isValid) errors.password = result.message;
+    }
+
+    return errors;
+};
+
 export function isValidEmail(email) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(String(email).toLowerCase());

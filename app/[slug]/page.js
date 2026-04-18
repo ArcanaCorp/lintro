@@ -1,33 +1,31 @@
 'use client';
 
 import pagestyle from '@/app/[slug]/styles/page.module.css'
-import { users } from '@/db/slug'
+import { getBySlug } from '@/services/slug.service';
 import { IconShare3 } from '@tabler/icons-react';
-import { use } from 'react';
+import { use, useEffect, useState } from 'react';
 export default function SlugPage ({ params }) {
 
     const { slug } = use(params);
+    const [ user, setUser ] = useState(null);
 
     // Buscar el usuario correspondiente
-    const user = users.find(u => u.slug === slug);
 
-    const handleShared = async () => {
-        try {
-            const shareData = {
-                title: user?.name || "Compartir",
-                text: `Mira esta página\n\n*${user.name}* - _${user.fullname}_ y lo puedes encontrar en el siguiente enlace:\n\n`,
-                url: window.location.href,
-            };
-            if (navigator.share) {
-                await navigator.share(shareData);
-            } else {
-                const text = encodeURIComponent(`${shareData.text}: ${shareData.url}`);
-                window.open(`https://wa.me/send?text=${text}`, "_blank");
+    const handleShared = async () => {}
+
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const data = await getBySlug(slug);
+                setUser(data[0])
+            } catch (error) {
+                console.error(error);
             }
-        } catch (err) {
-            console.error("Error al compartir:", err);
         }
-    }
+        getUser();
+    }, [slug]);
+
 
     if (!user) {
         return <div>No se encontró el usuario: {slug}</div>;
@@ -44,41 +42,10 @@ export default function SlugPage ({ params }) {
                         <button className={`${pagestyle.share}`} onClick={handleShared}><IconShare3/></button>
                     </div>
                     <picture className={`${pagestyle.avatar}`}>
-                        <img src={user.avatar.src} alt={`Foto de perfil de ${user.name} - ${user.fullname}`} />
+                        <img src={user?.avatar_url} alt={`Foto de perfil de ${user?.name}`} />
                     </picture>
-                    <h2 className={`${pagestyle.name}`}>{user.name}</h2>
-                    <p className={`${pagestyle.textname}`}>{user.fullname}</p>
-                </section>
-
-                <section className={`${pagestyle.section}`}>
-                    <h3 className={`${pagestyle.subtit}`}>Contáctanos</h3>
-                    <ul className={pagestyle.lstntw}>
-                        {user.contacts.map((ctn, idx) => (
-                            <li key={idx}>
-                                <a className={pagestyle.opc} href={ctn.link} target='_blank'>{ctn.icon}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className={`${pagestyle.section}`}>
-                    <h3 className={`${pagestyle.subtit}`}>Síguenos</h3>
-                    <ul className={pagestyle.lstntw}>
-                        {user.networks.map((ntw, idx) => (
-                            <li key={idx}>
-                                <a className={pagestyle.opc} href={ntw.link}>{ntw.icon}</a>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-
-                <section className={`${pagestyle.section}`}>
-                    <h3 className={`${pagestyle.subtit}`}>{user.tit}</h3>
-                    <ul className={`${pagestyle.lst}`}>
-                        {user.services.map((srv, idx) => (
-                            <li className={`${pagestyle.itm}`} key={idx}>{srv.txt}</li>
-                        ))}
-                    </ul>
+                    <h2 className={`${pagestyle.name}`}>{user?.name}</h2>
+                    <p className={`${pagestyle.textname}`}>{user?.bio}</p>
                 </section>
 
                 <section className={`${pagestyle.section}`}>

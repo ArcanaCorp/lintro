@@ -1,9 +1,8 @@
 'use client'
-
-import { Link, Store, Paintbrush, Settings, LogOut } from "lucide-react";
-import ProtectedRoute from "@/secure/ProtectedRoute";
-import styles from './styles/layout.module.css'
 import { useAuth } from "@/context/AuthContext";
+import NavBar from "@/layout/Navbar";
+import Header from "@/layout/Header";
+import { Toaster } from "sonner";
 
 export default function DashboardLayout ({ children }) {
 
@@ -11,64 +10,22 @@ export default function DashboardLayout ({ children }) {
 
     return (
     
-        <ProtectedRoute>
+        <>
 
-            <div className={styles.box}>
+            <div className="flex flex-col-reverse">
 
-                <nav className={styles.nav}>
+                <NavBar user={user?.user_metadata} />
 
-                    <ul className={styles.head}>
-                        <li className={styles.content}>
-                            <div className={styles.avatar}></div>
-                            <h4>{user?.name}</h4>
-                        </li>
-                    </ul>
-                    
-                    <ul className={styles.list}>
-                        <li className={styles.item}>
-                            <a href="/dashboard">
-                                <Link strokeWidth={1.5} />
-                                <span>Links</span>
-                            </a>
-                        </li>
-                        <li className={styles.item}>
-                            <a href="/dashboard/store">
-                                <Store strokeWidth={1.5} />
-                                <span>Tienda</span>
-                            </a>
-                        </li>
-                        <li className={styles.item}>
-                            <a href="/dashboard/design">
-                                <Paintbrush strokeWidth={1.5} />
-                                <span>Diseño</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul className={styles.list}>
-                        <li className={styles.item}>
-                            <a href="/dashboard/settings">
-                                <Settings strokeWidth={1.5} />
-                                <span>Configuración</span>
-                            </a>
-                        </li>
-                        <li className={styles.item}>
-                            <a>
-                                <LogOut strokeWidth={1.5} />
-                                <span>Cerrar Sesión</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </nav>
-
-                <main className={styles.main}>
-                    <div>{children}</div>
+                <main className="w h bg-background" style={{"--w": "100%", "--h": "calc(100dvh - 60px)"}}>
+                    <Header user={user?.user_metadata}/>
+                    <div className="w h py-md" style={{"--w": "100%", "--h": "calc(100dvh - 120px)", overflowY: 'auto'}}>{children}</div>
                 </main>
 
             </div>
 
-        </ProtectedRoute>
+            <Toaster position="top-left" duration={5000} richColors />
+
+        </>
     
     )
 

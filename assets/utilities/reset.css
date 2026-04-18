@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: var(--font-poppins-sans);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg);
+}
+
+input, select, textarea {
+    outline: none;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-dark);
+}
+
+.tabler-icon {
+    stroke-width: 1.2;
+}

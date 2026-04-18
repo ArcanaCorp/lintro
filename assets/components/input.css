@@ -1,0 +1,85 @@
+/* =========================
+⌨️ BASE INPUT
+========================= */
+.input {
+    width: 100%;
+    height: 50px;
+    padding: 0 1rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius-md);
+    transition: all 0.2s ease;
+}
+
+/* =========================
+🧾 PLACEHOLDER
+========================= */
+.input::placeholder {
+    color: var(--color-gray);
+    opacity: 0.7;
+}
+
+/* =========================
+✨ STATES
+========================= */
+
+/* Hover */
+.input:hover {
+    border-color: var(--color-dark);
+}
+
+/* Focus */
+.input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(6, 249, 136, 0.2);
+}
+
+/* Disabled */
+.input:disabled,
+.input.is-disabled {
+    background-color: var(--color-bg);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* =========================
+🚦 VALIDATION STATES
+========================= */
+.input-success {
+    border-color: var(--color-success);
+}
+
+.input-success:focus {
+    box-shadow: 0 0 0 2px rgba(0, 221, 48, 0.2);
+}
+
+.input-error {
+    border-color: var(--color-error);
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 2px rgba(219, 0, 0, 0.2);
+}
+
+.input-warning {
+    border-color: var(--color-warning);
+}
+
+.input-warning:focus {
+    box-shadow: 0 0 0 2px rgba(218, 218, 3, 0.2);
+}
+
+/* =========================
+📏 SIZES
+========================= */
+.input-sm {
+    height: 40px;
+    font-size: var(--font-size-xs);
+}
+
+.input-lg {
+    height: 60px;
+    font-size: var(--font-size-base);
+}

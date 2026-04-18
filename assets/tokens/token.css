@@ -1,0 +1,60 @@
+:root {
+
+    --color-primary: #06F988;
+    --color-accent: #00351E;
+    --color-dark: #181818;
+    --color-black: #000000;
+    --color-negative: #121212;
+    --color-white: #FFFFFF;
+    --color-bg: #f9f9f9;
+    --color-gray: #888888;
+    --color-error: #db0000;
+    --color-warning: rgb(218, 218, 3);
+    --color-success: rgba(0, 221, 48);
+    --color-info: rgba(0, 85, 255);
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 36px;
+    --font-size-4xl: 48px;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* 📏 Espaciados */
+    --space-xxs: 2px;
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 12px;
+    --space-lg: 16px;
+    --space-xl: 20px;
+    --space-2xl: 24px;
+    --space-3xl: 32px;
+
+    /* ⬜ Bordes */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 9999px;
+
+    --border-width: 1px;
+    --border-color: var(--color-accent);
+    --border-normal: var(--border-width) solid var(--border-color);
+    --border-secondary: var(--border-width) solid var(--color-gray);
+
+    /* 🌫️ Sombras */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.12);
+
+    /* 📌 Layout */
+    --sidebar-width: 300px;
+    --header-height: 80px;
+
+}

@@ -1,53 +1,38 @@
 'use client'
 
+import { getCurrentUser } from "@/services/auth.service";
+import { getFullProfile } from "@/services/profile.service";
 import { createContext, useContext, useState, useEffect } from "react";
-import Cookies from "js-cookie";
-import { jwtDecode } from "jwt-decode";
-import { serviceGetAccount } from "@/services/account/account.service";
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
 
-    const [ user, setUser ] = useState(null); 
+    const [ user, setUser ] = useState(null);
+    const [ profile, setProfile ] = useState(null);
     const [ loading, setLoading ] = useState(true);
 
     useEffect(() => {
+        const init = async () => {
+            const currentUser = await getCurrentUser();
 
-        const initAuth = async () => {
-            const token = Cookies.get("c_user");
-            if (token) {
-                try {
-                    const data = await serviceGetAccount(token);
-                    if (data.success) {
-                        const decode = jwtDecode(data?.data.user);
-                        setUser(decode); // 👈 aquí guardas el user completo que devuelve backend
-                    } else {
-                        Cookies.remove("c_user"); // si falla, limpia
-                        setUser(null);
-                    }
-                } catch (err) {
-                    Cookies.remove("c_user");
-                    setUser(null);
-                }
+            if (!currentUser) {
+                setLoading(false);
+                return;
             }
+
+            setUser(currentUser);
+
+            const fullProfile = await getFullProfile(currentUser.id);
+
+            setProfile(fullProfile);
             setLoading(false);
         };
 
-        initAuth();
+        init();
     }, []);
 
-    const login = (token) => {
-        Cookies.set("c_user", token, { expires: 1 / 24 }); // 1h de vida
-        setUser({ token }); // podrías disparar un fetch para traer perfil
-    };
-
-    const logout = () => {
-        Cookies.remove("c_user");
-        setUser(null);
-    };
-
-    const contextValue = { user, login, logout, loading };
+    const contextValue = { user, setUser, loading, profile, setProfile };
 
     return (
         <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

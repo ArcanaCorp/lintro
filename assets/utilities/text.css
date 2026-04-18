@@ -1,0 +1,129 @@
+/* =========================
+🔤 FONT SIZES
+========================= */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+
+/* =========================
+🔠 FONT WEIGHT
+========================= */
+.fw-normal { font-weight: var(--font-weight-normal); }
+.fw-medium { font-weight: var(--font-weight-medium); }
+.fw-semibold { font-weight: var(--font-weight-semibold); }
+.fw-bold { font-weight: var(--font-weight-bold); }
+
+/* =========================
+📏 LINE HEIGHT (CLAVE UX)
+========================= */
+.lh-none { line-height: 1; }
+.lh-tight { line-height: 1.2; }
+.lh-normal { line-height: 1.5; }
+.lh-relaxed { line-height: 1.7; }
+
+/* =========================
+🎨 TEXT COLORS (alineado a tu system)
+========================= */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-dark { color: var(--color-dark); }
+.text-white { color: var(--color-white); }
+.text-gray { color: var(--color-gray); }
+
+/* Semánticos */
+.text-main { color: var(--color-dark); }
+.text-muted { color: var(--color-gray); }
+.text-inverse { color: var(--color-white); }
+
+/* Estados */
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-info { color: var(--color-info); }
+
+/* =========================
+📐 TEXT ALIGN
+========================= */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* =========================
+🔡 TRANSFORMACIONES
+========================= */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+/* =========================
+✂️ TEXT UTILITIES
+========================= */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.text-wrap {
+    word-wrap: break-word;
+}
+
+/* =========================
+📏 SPACING (micro tipográfico)
+========================= */
+.letter-tight { letter-spacing: -0.02em; }
+.letter-normal { letter-spacing: 0; }
+.letter-wide { letter-spacing: 0.05em; }
+
+@media (min-width: 768px) {
+    .md\:text-xs { font-size: var(--font-size-xs); }
+    .md\:text-sm { font-size: var(--font-size-sm); }
+    .md\:text-md { font-size: var(--font-size-md); }
+    .md\:text-lg { font-size: var(--font-size-lg); }
+    .md\:text-xl { font-size: var(--font-size-xl); }
+    .md\:text-2xl { font-size: var(--font-size-2xl); }
+    .md\:text-3xl { font-size: var(--font-size-3xl); }
+    .md\:text-4xl { font-size: var(--font-size-4xl); }
+
+    .md\:fw-normal { font-width: var(--font-weight-normal); }
+    .md\:fw-medium { font-width: var(--font-weight-medium); }
+    .md\:fw-semibold { font-width: var(--font-weight-semibold); }
+    .md\:fw-bold { font-width: var(--font-weight-bold); }
+}
+
+@media (min-width: 1024px) {
+    .lg\:text-xs { font-size: var(--font-size-xs); }
+    .lg\:text-sm { font-size: var(--font-size-sm); }
+    .lg\:text-md { font-size: var(--font-size-md); }
+    .lg\:text-lg { font-size: var(--font-size-lg); }
+    .lg\:text-xl { font-size: var(--font-size-xl); }
+    .lg\:text-2xl { font-size: var(--font-size-2xl); }
+    .lg\:text-3xl { font-size: var(--font-size-3xl); }
+    .lg\:text-4xl { font-size: var(--font-size-4xl); }
+
+    .lg\:fw-normal { font-width: var(--font-weight-normal); }
+    .lg\:fw-medium { font-width: var(--font-weight-medium); }
+    .lg\:fw-semibold { font-width: var(--font-weight-semibold); }
+    .lg\:fw-bold { font-width: var(--font-weight-bold); }
+}
+
+@media (min-width: 1440px) {
+    .xl\:text-xs { font-size: var(--font-size-xs); }
+    .xl\:text-sm { font-size: var(--font-size-sm); }
+    .xl\:text-md { font-size: var(--font-size-md); }
+    .xl\:text-lg { font-size: var(--font-size-lg); }
+    .xl\:text-xl { font-size: var(--font-size-xl); }
+    .xl\:text-2xl { font-size: var(--font-size-2xl); }
+    .xl\:text-3xl { font-size: var(--font-size-3xl); }
+    .xl\:text-4xl { font-size: var(--font-size-4xl); }
+
+    .xl\:fw-normal { font-width: var(--font-weight-normal); }
+    .xl\:fw-medium { font-width: var(--font-weight-medium); }
+    .xl\:fw-semibold { font-width: var(--font-weight-semibold); }
+    .xl\:fw-bold { font-width: var(--font-weight-bold); }
+}

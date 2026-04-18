@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.10.2",
+    "@supabase/supabase-js": "^2.103.2",
     "@tabler/icons-react": "^3.35.0",
     "js-cookie": "^3.0.5",
     "jwt-decode": "^4.0.0",

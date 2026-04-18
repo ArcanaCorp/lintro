@@ -1,1 +1,4 @@
-export const REACT_APP_API_URL = 'http://localhost:4000/api'
+export const SUPABASE = {
+    URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+}

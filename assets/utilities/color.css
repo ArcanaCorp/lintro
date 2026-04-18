@@ -1,0 +1,97 @@
+/* =========================
+🎨 BACKGROUNDS
+========================= */
+.bg-primary { background-color: var(--color-primary); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-dark { background-color: var(--color-dark); }
+.bg-black { background-color: var(--color-black); }
+.bg-negative { background-color: var(--color-negative); }
+
+.bg-white { background-color: var(--color-white); }
+.bg-background { background-color: var(--color-bg); }
+.bg-gray { background-color: var(--color-gray); }
+.bg-neutro { background-color: #EEEEEE; }
+
+.bg-none { background: none; }
+
+/* Hover / Active (derivados) */
+.bg-primary-hover:hover { filter: brightness(0.9); }
+.bg-primary-active:active { filter: brightness(0.8); }
+
+/* =========================
+🧾 TEXT COLORS
+========================= */
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.text-dark { color: var(--color-dark); }
+
+.text-white { color: var(--color-white); }
+.text-gray { color: var(--color-gray); }
+
+/* Jerarquía semántica */
+.text-main { color: var(--color-dark); }
+.text-muted { color: var(--color-gray); }
+.text-inverse { color: var(--color-white); }
+
+/* =========================
+🎯 BRAND / HIGHLIGHT
+========================= */
+.text-brand { color: var(--color-primary); }
+.text-highlight { color: var(--color-accent); }
+
+/* =========================
+🚦 STATES (TEXT + BG)
+========================= */
+.text-success { color: var(--color-success); }
+.bg-success { background-color: var(--color-success); }
+.bg-success-soft { background-color: rgba(0, 221, 48, 0.1); }
+
+.text-warning { color: var(--color-warning); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-warning-soft { background-color: rgba(218, 218, 3, 0.15); }
+
+.text-error { color: var(--color-error); }
+.bg-error { background-color: var(--color-error); }
+.bg-error-soft { background-color: rgba(219, 0, 0, 0.1); }
+
+.text-info { color: var(--color-info); }
+.bg-info { background-color: var(--color-info); }
+.bg-info-soft { background-color: rgba(0, 85, 255, 0.1); }
+
+/* =========================
+🔲 BORDERS
+========================= */
+.border { border: 1px solid #EEEEEE; }
+.border-strong { border: 1px solid var(--color-dark); }
+
+.border-primary { border: 1px solid var(--color-primary); }
+.border-accent { border: 1px solid var(--color-accent); }
+
+.border-success { border: 1px solid var(--color-success); }
+.border-warning { border: 1px solid var(--color-warning); }
+.border-error { border: 1px solid var(--color-error); }
+.border-info { border: 1px solid var(--color-info); }
+
+/* =========================
+🔲 FOCUS STATES
+========================= */
+.focus-ring:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(6, 249, 136, 0.25);
+}
+
+/* =========================
+🧩 UTILIDADES EXTRA
+========================= */
+.bg-hover:hover { background-color: var(--color-bg); }
+
+.text-hover:hover { color: var(--color-primary); }
+
+.border-hover:hover { border-color: var(--color-primary); }
+
+/* Disabled state (clave para SaaS) */
+.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
