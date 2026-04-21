@@ -131,6 +131,141 @@
 
 .inset { inset: 0; }
 
+@media (min-width: 768px) {
+    /* =========================
+    📺 DISPLAY
+    ========================= */
+    .md\:block { display: block; }
+    .md\:inline { display: inline; }
+    .md\:inline-block { display: inline-block; }
+    .md\:flex { display: flex; }
+    .md\:inline-flex { display: inline-flex; }
+    .md\:grid { display: grid; }
+    .md\:none { display: none; }
+    .md\:center { display: grid; place-items: center; }
+
+    /* =========================
+    📦 FLEX - DIRECCIÓN
+    ========================= */
+    .md\:flex-row { flex-direction: row; }
+    .md\:flex-col { flex-direction: column; }
+    .md\:flex-row-reverse { flex-direction: row-reverse; }
+    .md\:flex-col-reverse { flex-direction: column-reverse; }
+
+    /* =========================
+    📦 FLEX - JUSTIFY
+    ========================= */
+    .md\:justify-start { justify-content: flex-start; }
+    .md\:justify-center { justify-content: center; }
+    .md\:justify-end { justify-content: flex-end; }
+    .md\:justify-between { justify-content: space-between; }
+    .md\:justify-around { justify-content: space-around; }
+    .md\:justify-evenly { justify-content: space-evenly; }
+
+    /* =========================
+    📦 FLEX - ALIGN
+    ========================= */
+    .md\:items-start { align-items: flex-start; }
+    .md\:items-center { align-items: center; }
+    .md\:items-end { align-items: flex-end; }
+    .md\:items-stretch { align-items: stretch; }
+    .md\:items-baseline { align-items: baseline; }
+
+    /* =========================
+    📦 FLEX - CONTENT
+    ========================= */
+    .md\:content-start { align-content: flex-start; }
+    .md\:content-center { align-content: center; }
+    .md\:content-end { align-content: flex-end; }
+    .md\:content-between { align-content: space-between; }
+
+    /* =========================
+    📦 FLEX - WRAP
+    ========================= */
+    .md\:flex-wrap { flex-wrap: wrap; }
+    .md\:flex-nowrap { flex-wrap: nowrap; }
+    .md\:flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+    /* =========================
+    📦 FLEX - GROW / SHRINK
+    ========================= */
+    .md\:flex-1 { flex: 1; }
+    .md\:flex-auto { flex: auto; }
+    .md\:flex-initial { flex: initial; }
+    .md\:flex-none { flex: none; }
+
+    /* =========================
+    📦 FLEX - GAP
+    ========================= */
+    .md\:gap-xs { gap: var(--space-xs); }
+    .md\:gap-sm { gap: var(--space-sm); }
+    .md\:gap-md { gap: var(--space-md); }
+    .md\:gap-lg { gap: var(--space-lg); }
+    .md\:gap-xl { gap: var(--space-xl); }
+    .md\:gap-2xl { gap: var(--space-2xl); }
+
+    /* =========================
+    🔲 GRID - TEMPLATE
+    ========================= */
+    .md\:grid-1 { grid-template-columns: repeat(1, 1fr); }
+    .md\:grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .md\:grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .md\:grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .md\:grid-5 { grid-template-columns: repeat(5, 1fr); }
+    .md\:grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+    /* =========================
+    🔲 GRID - AUTO FIT (RESPONSIVE)
+    ========================= */
+    .md\:grid-auto-sm { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+    .md\:grid-auto-md { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .md\:grid-auto-lg { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+    /* =========================
+    🔲 GRID - GAP
+    ========================= */
+    .md\:grid-gap-xs { gap: var(--space-xs); }
+    .md\:grid-gap-sm { gap: var(--space-sm); }
+    .md\:grid-gap-md { gap: var(--space-md); }
+    .md\:grid-gap-lg { gap: var(--space-lg); }
+    .md\:grid-gap-xl { gap: var(--space-xl); }
+
+    /* =========================
+    📐 ALIGN SELF
+    ========================= */
+    .md\:self-start { align-self: flex-start; }
+    .md\:self-center { align-self: center; }
+    .md\:self-end { align-self: flex-end; }
+    .md\:self-stretch { align-self: stretch; }
+
+    /* =========================
+    📐 JUSTIFY SELF
+    ========================= */
+    .md\:justify-self-start { justify-self: start; }
+    .md\:justify-self-center { justify-self: center; }
+    .md\:justify-self-end { justify-self: end; }
+    .md\:justify-self-stretch { justify-self: stretch; }
+
+    /* =========================
+    📐 OVERFLOW
+    ========================= */
+    .md\:overflow-hidden { overflow: hidden; }
+    .md\:overflow-auto { overflow: auto; }
+    .md\:overflow-scroll { overflow: scroll; }
+
+    .md\:overflow-scroll::-webkit-scrollbar { display: none; }
+
+    /* =========================
+    🧩 POSITION (BÁSICO)
+    ========================= */
+    .md\:relative { position: relative; }
+    .md\:absolute { position: absolute; }
+    .md\:fixed { position: fixed; }
+    .md\:sticky { position: sticky; }
+
+    .md\:inset { inset: 0; }
+}
+
 @media (min-width: 1024px) {
     /* =========================
     📺 DISPLAY

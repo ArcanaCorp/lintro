@@ -7,7 +7,7 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-    title: 'AAPRODEH | Lintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace.'
+    title: 'Lintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace.'
 }
 
 export default function SlugLayout ({ children }) {

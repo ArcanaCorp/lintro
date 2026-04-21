@@ -1,60 +1,64 @@
-'use client';
-
-import pagestyle from '@/app/[slug]/styles/page.module.css'
+import { templates } from '@/config/registry';
 import { getBySlug } from '@/services/slug.service';
-import { IconShare3 } from '@tabler/icons-react';
-import { use, useEffect, useState } from 'react';
-export default function SlugPage ({ params }) {
 
-    const { slug } = use(params);
-    const [ user, setUser ] = useState(null);
+export async function generateMetadata({ params }) {
+    const { slug } = params;
 
-    // Buscar el usuario correspondiente
-
-    const handleShared = async () => {}
-
-
-    useEffect(() => {
-        const getUser = async () => {
-            try {
-                const data = await getBySlug(slug);
-                setUser(data[0])
-            } catch (error) {
-                console.error(error);
-            }
-        }
-        getUser();
-    }, [slug]);
-
+    const data = await getBySlug(slug);
+    const user = data?.[0];
 
     if (!user) {
-        return <div>No se encontró el usuario: {slug}</div>;
+        return {
+            title: "Usuario no encontrado | LintLintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace.ro"
+        };
     }
+
+    const title = `${user.name} | Lintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace.`;
+    const description = user.bio || "Descubre mis enlaces en Lintro";
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: [user.avatar_url],
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [user.avatar_url],
+        }
+    };
+}
+
+export default async function SlugPage ({ params }) {
+
+    const { slug } = params;
+    const data = await getBySlug(slug);
+    const user = data?.[0];
+
+    if (!user) return <div>No se encontró el usuario <b>{slug}</b></div>;
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: user?.name,
+        description: user?.bio,
+        image: user?.avatar_url,
+        url: `https://lintro.link/${user?.username}`,
+        sameAs: user?.social_links?.map(s => s.url) || []
+    };
+
+    const Template = templates[user.template] || templates.minimal;
 
     return (
 
-        <div className={`${pagestyle.window}`}>
-
-            <div className={`${pagestyle.box}`}>
-
-                <section className={`${pagestyle.header}`}>
-                    <div style={{display: 'flex', justifyContent: 'flex-end', padding: '.8rem 1rem'}}>
-                        <button className={`${pagestyle.share}`} onClick={handleShared}><IconShare3/></button>
-                    </div>
-                    <picture className={`${pagestyle.avatar}`}>
-                        <img src={user?.avatar_url} alt={`Foto de perfil de ${user?.name}`} />
-                    </picture>
-                    <h2 className={`${pagestyle.name}`}>{user?.name}</h2>
-                    <p className={`${pagestyle.textname}`}>{user?.bio}</p>
-                </section>
-
-                <section className={`${pagestyle.section}`}>
-                    <a className={`${pagestyle.badge}`} href='https://wa.me/51966327426/?text'>Únete a <b>{user.name}</b> en Lintro</a>
-                </section>
-
-            </div>
-
-        </div>
+        <>
+            <script type='application/ld+json' dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} />
+            <Template profile={user} />
+        </>
 
     )
 
