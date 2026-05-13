@@ -82,12 +82,12 @@ export default function Minimal ({ profile }) {
                     <ul className="w-full grid grid-2 gap-md">
                         {profile?.products?.map((item) => (
                             <li key={item.id} className="w-full rounded-md overflow-hidden" style={{"background": profile?.theme?.bg}}>
-                                <div className="w-full h lg:h" style={{"--h": "160px", "--h-lg": "180px"}}>
+                                <div className="w-full h lg:h" style={{"--h": "180px", "--h-lg": "240px"}}>
                                     <img src={item.image_url ? item.image_url : `https://ui-avatars.com/api/?name=${item?.title}&background=06f988&color=00351e&bold`} style={{objectFit: 'cover'}} />
                                 </div>
                                 <div className="w-full p-md">
                                     <h4>{item.title}</h4>
-                                    <p className="text-xs text-muted">{item.description}</p>
+                                    <p className="text-xs text-muted my-sm">{item.description}</p>
                                     <p>S/. {(item.price).toFixed(2)}</p>
                                 </div>
                             </li>
