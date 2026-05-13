@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
 
     if (!user) {
         return {
-            title: "Usuario no encontrado | LintLintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace.ro"
+            title: "Usuario no encontrado | LintLintro | Crea tu página en pocos click y date a conocer a tus clientes con un solo enlace"
         };
     }
 
@@ -19,6 +19,11 @@ export async function generateMetadata({ params }) {
     return {
         title,
         description,
+        icons: {
+            icon: user?.avatar_url,
+            shortcut: user?.avatar_url,
+            apple: user?.avatar_url,
+        },
         openGraph: {
             title,
             description,
