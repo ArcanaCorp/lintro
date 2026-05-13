@@ -14,14 +14,13 @@ export default function Minimal ({ profile }) {
 
     const handleShare = async () => {
 
-        const shareData = {
-            title: profile?.name || 'Mi Lintro',
-            text: profile?.bio || 'Mira mi perfil',
-            url: window.location.href
-        };
-
         try {
 
+            const shareData = {
+                title: profile?.name || 'Mi Lintro',
+                text: profile?.bio || 'Mira mi perfil',
+                url: window.location.href
+            };
             // API nativa del navegador
             if (navigator.share) {
 
