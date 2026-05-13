@@ -83,3 +83,91 @@
     height: 60px;
     font-size: var(--font-size-base);
 }
+
+/* =========================
+⌨️ BASE TEXTAREA
+========================= */
+.textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.75rem 1rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-dark);
+    background-color: var(--color-bg);
+    border-radius: var(--border-radius-md);
+    resize: vertical;
+    transition: all 0.2s ease;
+    line-height: 1.5;
+}
+
+/* =========================
+🧾 PLACEHOLDER
+========================= */
+.textarea::placeholder {
+    color: var(--color-gray);
+    opacity: 0.7;
+}
+
+/* =========================
+✨ STATES
+========================= */
+
+/* Hover */
+.textarea:hover {
+    border-color: var(--color-dark);
+}
+
+/* Focus */
+.textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(6, 249, 136, 0.2);
+}
+
+/* Disabled */
+.textarea:disabled,
+.textarea.is-disabled {
+    background-color: var(--color-bg);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* =========================
+🚦 VALIDATION STATES
+========================= */
+.textarea-success {
+    border-color: var(--color-success);
+}
+
+.textarea-success:focus {
+    box-shadow: 0 0 0 2px rgba(0, 221, 48, 0.2);
+}
+
+.textarea-error {
+    border-color: var(--color-error);
+}
+
+.textarea-error:focus {
+    box-shadow: 0 0 0 2px rgba(219, 0, 0, 0.2);
+}
+
+.textarea-warning {
+    border-color: var(--color-warning);
+}
+
+.textarea-warning:focus {
+    box-shadow: 0 0 0 2px rgba(218, 218, 3, 0.2);
+}
+
+/* =========================
+📏 SIZES
+========================= */
+.textarea-sm {
+    min-height: 80px;
+    font-size: var(--font-size-xs);
+}
+
+.textarea-lg {
+    min-height: 160px;
+    font-size: var(--font-size-base);
+}

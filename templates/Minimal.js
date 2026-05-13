@@ -6,19 +6,48 @@ import { useState } from "react";
 import { IconShare3 } from "@tabler/icons-react";
 import Link from "next/link";
 import SocialLinks from "@/components/templates/SocialLinks";
+import { toast } from "sonner";
 
 export default function Minimal ({ profile }) {
 
-    const [ view, setView ] = useState('links')
+    const [ view, setView ] = useState('links');
 
-    console.log(profile);
+    const handleShare = async () => {
+
+        const shareData = {
+            title: profile?.name || 'Mi Lintro',
+            text: profile?.bio || 'Mira mi perfil',
+            url: window.location.href
+        };
+
+        try {
+
+            // API nativa del navegador
+            if (navigator.share) {
+
+                await navigator.share(shareData);
+
+            } else {
+
+                // Fallback desktop viejo
+                await navigator.clipboard.writeText(window.location.href);
+
+                toast.success('Se copió el link al portapapeles');
+
+            }
+
+        } catch (error) {
+
+            console.error('Error sharing:', error);
+
+        }
+    };
 
     return (
         <BaseLayout theme={profile?.theme}>
-            <div className={`relative w-full m-auto p-md flex flex-col gap-lg rounded-lg lg:w xl:w`} style={{"--w-lg": "450px", "--mnw-lg": "450px", "--w-xl": "550px", "--mnw-xl": "550px", background: profile?.theme?.surface, border: profile?.theme?.border}}>
-                <div className="w-full flex items-center justify-between">
-                    <button className="center w h rounded-full" style={{"--w": "50px", "--mnw": "50px", "--h": "50px", background: profile?.theme?.bg}}></button>
-                    <button className="center w h rounded-full" style={{"--w": "50px", "--mnw": "50px", "--h": "50px", background: profile?.theme?.bg}}><IconShare3 color={profile?.theme?.text}/></button>
+            <div className={`relative w-full m-auto p-md flex flex-col gap-lg md:rounded-lg lg:w xl:w`} style={{"--w-lg": "450px", "--mnw-lg": "450px", "--w-xl": "550px", "--mnw-xl": "550px", background: profile?.theme?.surface, border: profile?.theme?.border, borderRadius: profile?.theme.radius}}>
+                <div className="w-full flex items-center justify-end">
+                    <button className="center w h rounded-full" style={{"--w": "50px", "--mnw": "50px", "--h": "50px", background: profile?.theme?.bg}} onClick={handleShare}><IconShare3 color={profile?.theme?.text}/></button>
                 </div>
                 <section className="w-full flex flex-col gap-md">
                     <picture className="block w h m-auto bg-neutro rounded-full" style={{"--w": "160px", "--mnw": "160px", "--h": "160px", border: profile?.theme?.border}}>
@@ -41,7 +70,7 @@ export default function Minimal ({ profile }) {
                     </ul>
                 )}
                 {view === 'links' && (
-                    <ul className="w-full">
+                    <ul className="w-full flex flex-col gap-md">
                         {profile?.links?.map((item) => (
                             <li key={item.id} className="w-full">
                                 <Link className="btn" href={`${item.url}/?utm_source=lintro`} target="_blank"><span>{item.title}</span></Link>
@@ -50,10 +79,17 @@ export default function Minimal ({ profile }) {
                     </ul>
                 )}
                 {view === 'shop' && (
-                    <ul className="w-full">
+                    <ul className="w-full grid grid-2 gap-md">
                         {profile?.products?.map((item) => (
-                            <li key={item.id} className="w-full">
-                                <Link className="btn" href={`#`} target="_blank"><span>{item.title}</span></Link>
+                            <li key={item.id} className="w-full rounded-md overflow-hidden" style={{"background": profile?.theme?.bg}}>
+                                <div className="w-full h lg:h" style={{"--h": "160px", "--h-lg": "180px"}}>
+                                    <img src={item.image_url ? item.image_url : `https://ui-avatars.com/api/?name=${item?.title}&background=06f988&color=00351e&bold`} style={{objectFit: 'cover'}} />
+                                </div>
+                                <div className="w-full p-md">
+                                    <h4>{item.title}</h4>
+                                    <p className="text-xs text-muted">{item.description}</p>
+                                    <p>S/. {(item.price).toFixed(2)}</p>
+                                </div>
                             </li>
                         ))}
                     </ul>

@@ -22,9 +22,9 @@ export default function Header ({ user, profile }) {
                 <h1 className="text-xl">{title}</h1>
                 <div className="flex gap-xs items-center">
                     <button className="h flex items-center gap-md px-md rounded-full text-xs" style={{"--h": "40px"}}><IconShare2/> Compartir</button>
-                    <Link href={'/'} className="block w h rounded-full bg-gray overflow-hidden" style={{"--w": "40px", "--mnw": "40px", "--h": "40px"}}>
+                    <div className="block w h rounded-full bg-gray overflow-hidden" style={{"--w": "40px", "--mnw": "40px", "--h": "40px"}}>
                         <img src={`https://ui-avatars.com/api/?name=${profile?.name || user?.name || user?.email}&background=06f988&color=00351e&bold`} />
-                    </Link>
+                    </div>
                 </div>
             </div>
         </header>

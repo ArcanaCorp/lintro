@@ -39,6 +39,19 @@ export default function Mobile ({ profile }) {
                     ))}
                 </ul>
             )}
+            {view === 'shop' && (
+                <ul className="w-full py-md grid grid-2">
+                    {profile?.products.map((itm) => (
+                        <li key={itm.id} className="w-full">
+                            <div></div>
+                            <div>
+                                <h4>{itm.title}</h4>
+                                <p>S/. {(itm.price).toFixed(2)}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </div>
     )
 }

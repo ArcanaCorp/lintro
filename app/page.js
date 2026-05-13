@@ -14,8 +14,7 @@ export default function Page () {
                 <div className='w h-full m-auto flex items-center justify-between' style={{"--w": "90%"}}>
                     <Link href='/'><h1>Lintro.</h1></Link>
                     <ul className='flex items-center gap-sm'>
-                        <li><Link href='/auth/sign' className='btn btn-sm'>Ingresar</Link></li>
-                        <li><Link href='/auth/login' className='btn btn-sm btn-primary'>Comenzar</Link></li>
+                        <li><Link href='/auth' className='btn btn-sm btn-primary'>Comenzar</Link></li>
                     </ul>
                 </div>
             </header>
