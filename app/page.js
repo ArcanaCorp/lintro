@@ -14,7 +14,7 @@ export default function Page () {
                 <div className='w h-full m-auto flex items-center justify-between' style={{"--w": "90%"}}>
                     <Link href='/'><h1>Lintro.</h1></Link>
                     <ul className='flex items-center gap-sm'>
-                        <li><Link href='/auth' className='btn btn-sm btn-primary'>Comenzar</Link></li>
+                        <li><Link href='https://wa.me/51966327426/?text=Hola+quiero+mi+Lintro' target="_blank" className='btn btn-sm btn-primary'>Solicita el tuyo</Link></li>
                     </ul>
                 </div>
             </header>
@@ -26,8 +26,7 @@ export default function Page () {
                             <h1 className="text-3xl lg:text-4xl">Centraliza tu presencia digital en <span className="text-primary">un solo link</span></h1>
                             <p>Conecta tu contenido, redes sociales y proyectos en una página elegante y optimizada para la conversión</p>
                             <div className="flex gap-md">
-                                <Link href={'/'} className="btn btn-primary">Comenzar</Link>
-                                <Link href={'/'} className="btn">Ver ejemplos</Link>
+                                <Link href={'https://wa.me/51966327426/?text=Hola+quiero+mi+Lintro'} target="_blank" className="btn btn-primary">Solicitar el mío</Link>
                             </div>
                         </div>
                     </div>
