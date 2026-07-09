@@ -12,6 +12,8 @@
 .bg-gray { background-color: var(--color-gray); }
 .bg-neutro { background-color: #EEEEEE; }
 
+.bg-overlay { background-color: rgba(0, 0, 0, .2); }
+
 .bg-none { background: none; }
 
 /* Hover / Active (derivados) */

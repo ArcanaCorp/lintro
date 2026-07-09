@@ -1,5 +1,7 @@
 import Minimal from "@/templates/Minimal";
+import Store from "@/templates/Store";
 
 export const templates = {
-    minimal: Minimal
+    minimal: Minimal,
+    store: Store
 }

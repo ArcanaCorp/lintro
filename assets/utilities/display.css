@@ -119,6 +119,11 @@
 .overflow-auto { overflow: auto; }
 .overflow-scroll { overflow: scroll; }
 
+.scroll { overflow-y: scroll; }
+.no-scroll { overflow-y: hidden; }
+
+.scroll::-webkit-scrollbar { display: none; }
+
 .overflow-scroll::-webkit-scrollbar { display: none; }
 
 /* =========================
@@ -387,6 +392,9 @@
     .lg\:overflow-hidden { overflow: hidden; }
     .lg\:overflow-auto { overflow: auto; }
     .lg\:overflow-scroll { overflow: scroll; }
+
+    .lg\:scroll { overflow-y: scroll; }
+    .lg\:no-scroll { overflow-y: hidden; }
 
     .lg\:overflow-scroll::-webkit-scrollbar { display: none; }
 

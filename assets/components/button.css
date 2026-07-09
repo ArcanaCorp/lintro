@@ -90,3 +90,12 @@
     height: 60px;
     font-size: var(--font-size-base);
 }
+
+.btn-icon {
+    width: var(--w);
+    min-width: var(--w);
+    height: var(--h);
+    display: grid;
+    place-items: center;
+    border-radius: var(--border-radius-md);
+}

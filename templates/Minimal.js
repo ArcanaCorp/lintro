@@ -23,16 +23,10 @@ export default function Minimal ({ profile }) {
             };
             // API nativa del navegador
             if (navigator.share) {
-
                 await navigator.share(shareData);
-
             } else {
-
-                // Fallback desktop viejo
                 await navigator.clipboard.writeText(window.location.href);
-
                 toast.success('Se copió el link al portapapeles');
-
             }
 
         } catch (error) {

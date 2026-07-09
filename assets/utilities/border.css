@@ -2,3 +2,20 @@
 .rounded-md { border-radius: var(--border-radius-md); }
 .rounded-lg { border-radius: var(--border-radius-lg); }
 .rounded-full { border-radius: var(--border-radius-full); }
+.rounded { border-radius: var(--rounded); }
+
+@media (min-width: 768px) {
+    .md\:rounded-sm { border-radius: var(--border-radius-sm); }
+    .md\:rounded-md { border-radius: var(--border-radius-md); }
+    .md\:rounded-lg { border-radius: var(--border-radius-lg); }
+    .md\:rounded-full { border-radius: var(--border-radius-full); }
+    .md\:rounded { border-radius: var(--rounded-md); }
+}
+
+@media (min-width: 1024px) {
+    .lg\:rounded-sm { border-radius: var(--border-radius-sm); }
+    .lg\:rounded-md { border-radius: var(--border-radius-md); }
+    .lg\:rounded-lg { border-radius: var(--border-radius-lg); }
+    .lg\:rounded-full { border-radius: var(--border-radius-full); }
+    .lg\:rounded { border-radius: var(--rounded-lg); }
+}

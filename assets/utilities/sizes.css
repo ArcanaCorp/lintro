@@ -5,6 +5,8 @@
 .w-full { width: 100%; }
 .h-screen { height: 100dvh; }
 .h-full { height: 100%; }
+.w-auto { width: auto; }
+.h-auto { height: auto; }
 
 .w-inherit { width: inherit; }
 .h-inherit { height: inherit; }
@@ -33,6 +35,8 @@
 
     .lg\:w-inherit { width: inherit; }
     .lg\:h-inherit { height: inherit; }
+    .lg\:w-auto { width: auto; }
+    .lg\:h-auto { height: auto; }
 }
 
 @media (min-width: 1440px) {

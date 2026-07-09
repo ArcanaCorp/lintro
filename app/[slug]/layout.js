@@ -1,3 +1,4 @@
+import { CartProvider } from "@/context/CartContext"
 import { Poppins } from "next/font/google"
 
 const poppins = Poppins({
@@ -15,7 +16,11 @@ export default function SlugLayout ({ children }) {
     return (
 
         <html lang="en">
-            <body className={`${poppins.variable}`}>{children}</body>
+            <body className={`${poppins.variable}`}>
+                <CartProvider>
+                    {children}
+                </CartProvider>
+            </body>
         </html>
 
     )
