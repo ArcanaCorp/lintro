@@ -99,3 +99,23 @@
     place-items: center;
     border-radius: var(--border-radius-md);
 }
+/**absolute rounded-full px-md py-md flex items-center gap-sm bg-dark text-white */
+.btn-float {
+    position: absolute;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-white);
+    bottom: 50px;
+    left: 60px;
+    background-color: var(--color-dark);
+    border-radius: var(--border-radius-full);
+    padding: var(--space-md) var(--space-md);
+}
+
+@media (min-width: 1024px) {
+    .btn-float {
+        right: 50px;
+    }
+}

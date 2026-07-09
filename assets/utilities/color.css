@@ -11,6 +11,7 @@
 .bg-background { background-color: var(--color-bg); }
 .bg-gray { background-color: var(--color-gray); }
 .bg-neutro { background-color: #EEEEEE; }
+.bg-secondary { background-color: #F2F0F5; }
 
 .bg-overlay { background-color: rgba(0, 0, 0, .2); }
 

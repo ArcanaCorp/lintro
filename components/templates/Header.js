@@ -32,7 +32,7 @@ export default function Header ({ profile }) {
     return (
         <>
             <div className="w-full flex items-center justify-end">
-                <button className="center w h rounded-full" style={{"--w": "50px", "--mnw": "50px", "--h": "50px", background: profile?.theme?.bg}} onClick={handleShare}><IconShare3 color={profile?.theme?.text}/></button>
+                <button className="center w h rounded-full bg-neutro" style={{"--w": "50px", "--mnw": "50px", "--h": "50px"}} onClick={handleShare}><IconShare3 color={profile?.theme?.text}/></button>
             </div>
             <section className="w-full flex flex-col gap-md">
                 <picture className="block w h m-auto bg-neutro rounded-full" style={{"--w": "160px", "--mnw": "160px", "--h": "160px", border: profile?.theme?.border}}>

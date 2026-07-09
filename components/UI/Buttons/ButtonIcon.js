@@ -1,5 +1,5 @@
-export default function ButtonIcon ({ children, size, click }) {
+export default function ButtonIcon ({ children, size, click, style, rounded }) {
     return (
-        <button className={`btn-icon`} style={{"--w": `${size}px`, "--mnw": `${size}px`,"--h": `${size}px`}} onClick={click}>{children}</button>
+        <button className={`btn-icon rounded-${rounded}`} style={{"--w": `${size}px`, "--mnw": `${size}px`,"--h": `${size}px`, ...style}} onClick={click}>{children}</button>
     )
 }
