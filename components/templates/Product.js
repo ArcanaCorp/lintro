@@ -13,7 +13,7 @@ export default function Product ({ item, profile }) {
     return (
         <li className="w-full flex rounded-md overflow-hidden" style={{"background": profile?.theme?.bg}}>
             <div className="relative w-full h-full">
-                <Image src={item.image_url ? item.image_url : `https://ui-avatars.com/api/?name=${item?.title}&background=06f988&color=00351e&bold`} fill alt={`${item.title} - ${item.description}`} />
+                <Image src={item.image_url ? item.image_url : `/placeholder.png`} fill alt={`${item.title} - ${item.description}`} />
             </div>
             <div className="w-full p-md flex flex-col gap-sm">
                 <h4>{item.title}</h4>

@@ -19,9 +19,13 @@ export default function Store ({ profile }) {
             <div className={`relative w-full h-screen m-auto p-md flex flex-col scroll gap-lg md:rounded-lg lg:w xl:w lg:rounded lg:h-auto lg:no-scroll`} style={{"--w-lg": "450px", "--mnw-lg": "450px", "--w-xl": "550px", "--mnw-xl": "550px", "--rounded-lg": `${profile?.theme.radius}px`, background: profile?.theme?.surface, border: profile?.theme?.border}}>
                 <Header profile={profile} />
                 <ul className="w-full grid grid-1 gap-md">
-                    {profile?.products?.map((item) => (
-                        <Product key={item.id} item={item} profile={profile}/>
-                    ))}
+                    {profile?.products?.length > 0 ? (
+                        profile?.products?.map((item) => (
+                            <Product key={item.id} item={item} profile={profile}/>
+                        ))
+                    ) : (
+                        <p className="text-center">No hay productos disponibles aún</p>
+                    )}
                 </ul>
                 {cart.length > 0 && (
                     <button className="absolute rounded-full px-md py-sm flex items-center gap-sm" style={{background: profile?.theme?.bg,color: profile?.theme?.text}} onClick={toggleModal}><IconShoppingBag/> Ver carrito <span className="center w h rounded-full bg-white text-dark" style={{"--w": "20px", "--mnw": "20px", "--h": "20px"}}>{cart.length}</span></button>
