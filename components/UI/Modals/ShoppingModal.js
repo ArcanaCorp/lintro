@@ -5,20 +5,21 @@ import ButtonIcon from "../Buttons/ButtonIcon";
 import { useCart } from "@/context/CartContext";
 import ProductCart from "../Cards/ProductCart";
 import { messageToWhatsapp } from "@/utils/message-cart";
+import { useAnalytics } from "@/context/AnalyticsContext";
 
 export default function ShoppingModal ({ profile, close }) {
     
     const { cart, totalPrice } = useCart();
+    const { trackCheckout } = useAnalytics();
 
     const sendOrderToWhatsApp = () => {
         if (cart.length === 0) return;
 
+        trackCheckout(cart, totalPrice);
+
         const whatsappNumber = profile?.whatsapp;
 
-        if (!whatsappNumber) {
-            console.error("No se ha configurado un número de WhatsApp");
-            return;
-        }
+        if (!whatsappNumber) return console.error("No se ha configurado un número de WhatsApp");
 
         const message = messageToWhatsapp(cart, totalPrice);
 

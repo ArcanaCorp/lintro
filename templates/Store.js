@@ -4,17 +4,24 @@ import Header from "@/components/templates/Header";
 import { IconSearch, IconShoppingBag } from "@tabler/icons-react";
 import Product from "@/components/templates/Product";
 import { useCart } from "@/context/CartContext";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import ShoppingModal from "@/components/UI/Modals/ShoppingModal";
 import ButtonIcon from "@/components/UI/Buttons/ButtonIcon";
+import { useAnalytics } from "@/context/AnalyticsContext";
 
 export default function Store ({ profile }) {
 
-    const { cart } = useCart();
+    const { cart, totalItems, totalPrice } = useCart();
+    const { trackOpenCart, trackSearch } = useAnalytics();
     const [ view, setView ] = useState(false)
     const [ search, setSearch ] = useState("");
 
-    const toggleModal = () => setView(!view);
+    const toggleModal = () => {
+        if (!view) {
+            trackOpenCart(totalPrice, totalItems);
+        }
+        setView((prev) => !prev);
+    }
 
     const normalizeText = (text = "") => {
         return text
@@ -43,6 +50,31 @@ export default function Store ({ profile }) {
             return searchableText.includes(term);
         });
     }, [profile?.products, search]);
+
+    useEffect(() => {
+
+        const query = search.trim();
+
+
+        if (query.length < 2) {
+            return;
+        }
+
+
+        const timeout = setTimeout(() => {
+
+            trackSearch(
+                query,
+                filteredProducts.length
+            );
+
+        }, 700);
+
+
+        return () => clearTimeout(timeout);
+
+
+    }, [search, filteredProducts.length, trackSearch]);
 
     return (
         <BaseLayout theme={profile?.theme}>

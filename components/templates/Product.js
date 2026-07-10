@@ -1,14 +1,21 @@
 'use client';
 
+import { useAnalytics } from "@/context/AnalyticsContext";
 import { useCart } from "@/context/CartContext";
 import { IconMinus, IconPlus, IconTrash } from "@tabler/icons-react";
 import Image from "next/image";
 
-export default function Product ({ item, profile }) {
+export default function Product ({ item }) {
 
     const { cart, addToCart, increaseQuantity, decreaseQuantity, removeItemCart } = useCart();
+    const { trackAddToCart } = useAnalytics();
 
     const itemFind = cart.find((c) => c.id === item.id);
+
+    const handleAddCart = (item) => {
+        addToCart(item)
+        trackAddToCart(item)
+    }
 
     return (
         <li className="w-full flex rounded-md bg-secondary overflow-hidden lg:flex-col lg:justify-between">
@@ -32,7 +39,7 @@ export default function Product ({ item, profile }) {
                         </div>
                     </div>
                 ) : (   
-                    <button className="w-full text-xs py-md rounded-md bg-dark text-white" onClick={() => addToCart(item)}>Agregar al carrito</button>
+                    <button className="w-full text-xs py-md rounded-md bg-dark text-white" onClick={() => handleAddCart(item)}>Agregar al carrito</button>
                 )}
             </div>
         </li>

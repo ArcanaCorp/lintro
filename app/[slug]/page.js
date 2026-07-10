@@ -1,4 +1,5 @@
 import { templates } from '@/config/registry';
+import { AnalyticsProvider } from '@/context/AnalyticsContext';
 import { getBySlug } from '@/services/slug.service';
 
 export async function generateMetadata({ params }) {
@@ -60,10 +61,10 @@ export default async function SlugPage ({ params }) {
 
     return (
 
-        <>
+        <AnalyticsProvider profileId={user?.id}>
             <script type='application/ld+json' dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}} />
             <Template profile={user} />
-        </>
+        </AnalyticsProvider>
 
     )
 
